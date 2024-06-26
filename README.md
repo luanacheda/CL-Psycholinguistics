@@ -1,6 +1,4 @@
 # Computational Psycholinguistics Project
-Luana Cheda & Linda Mazzone  
-UZH - Spring Semester 2024
 
 This repository contains all the material we used for our project entitled "Sentences with long-distance agreement constructions: comparing reading speed and comprehension accuracy". The project is divided into two parts: the first part covers the experiment, and the second part involves the analysis programs.
 
