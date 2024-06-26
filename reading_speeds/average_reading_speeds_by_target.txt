@@ -1,0 +1,114 @@
+inviati: 829.00 ms/word
+inviato: 693.62 ms/word
+
+eletti: 736.82 ms/word
+
+sbandamenti: 214.78 ms/word
+sbandamento: 630.28 ms/word
+
+regalo: 713.10 ms/word
+
+occupa: 536.15 ms/word
+occupano: 421.55 ms/word
+
+sentito: 675.70 ms/word
+
+dimostrano: 594.74 ms/word
+
+accende: 666.72 ms/word
+accendono: 1318.49 ms/word
+
+inserite: 799.70 ms/word
+
+grande: 734.56 ms/word
+
+estende: 515.83 ms/word
+estendono: 673.55 ms/word
+
+spezzati: 823.43 ms/word
+spezzato: 575.20 ms/word
+
+presume: 644.61 ms/word
+
+pubblicati: 504.14 ms/word
+pubblicato: 591.32 ms/word
+
+produce: 655.40 ms/word
+producono: 242.64 ms/word
+
+edilizi: 771.14 ms/word
+edilizio: 630.21 ms/word
+
+partiva: 920.67 ms/word
+partivano: 873.89 ms/word
+
+ampi: 674.95 ms/word
+ampio: 652.36 ms/word
+
+considera: 704.23 ms/word
+
+risale: 514.53 ms/word
+
+dice: 549.09 ms/word
+
+determina: 645.56 ms/word
+determinano: 752.47 ms/word
+
+restante: 747.91 ms/word
+
+costituzionale: 596.05 ms/word
+costituzionali: 682.30 ms/word
+
+concessa: 4613.00 ms/word
+concesse: 765.65 ms/word
+
+applicano: 672.06 ms/word
+
+aiuta: 229.50 ms/word
+aiutano: 938.31 ms/word
+
+indicano: 976.18 ms/word
+
+adottano: 962.12 ms/word
+
+costituzionale: 610.29 ms/word
+costituzionali: 898.63 ms/word
+
+dovute: 678.25 ms/word
+
+esprime: 731.38 ms/word
+esprimono: 631.67 ms/word
+
+aggiunge: 816.71 ms/word
+aggiungono: 678.64 ms/word
+
+chiama: 629.63 ms/word
+chiamano: 264.80 ms/word
+
+entrano: 732.01 ms/word
+
+guarda: 824.12 ms/word
+guardano: 966.14 ms/word
+
+bravi: 541.29 ms/word
+
+sussiste: 742.04 ms/word
+
+conoscono: 611.25 ms/word
+
+valido: 678.76 ms/word
+
+fornita: 613.16 ms/word
+fornite: 1207.47 ms/word
+
+Addirittura divertente!: 647.90 ms/word
+Molto semplice :): 703.99 ms/word
+
+abbiamo: 715.46 ms/word
+
+razionale: 713.94 ms/word
+razionali: 1365.18 ms/word
+
+spiega: 729.80 ms/word
+
+nuovo: 592.55 ms/word
