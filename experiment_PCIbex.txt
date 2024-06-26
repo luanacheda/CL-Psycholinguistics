@@ -1,0 +1,519 @@
+PennController.ResetPrefix(null); // Shorten command names (keep this line here))
+DebugOff()   
+Sequence("instructions", "choose_list", "practice_item", randomize("experiment"), SendResults(), "end")
+
+// This is run at the beginning of each trial
+Header(
+    // Declare a global Var element "ID" in which we will store the participant's ID
+    newVar("ID").global(),
+    newVar("listChoice", "Lista 1").global() // variabile settata glboale così che tutti possano leggerla
+    
+)
+.log("id", getVar("ID")) // Add the ID to all trials' results lines
+
+// Define multiple lists
+AddTable("dati",
+    "Lista,Sentence,A,B\n" + 
+    "Lista 1,\"Per esempio, queste persone sono gli stranieri immigrati in Italia da poco tempo, che\",conosce,conoscono\n" + 
+    "Lista 1,\"Inoltre i proprietari hanno dei poteri di godimento e disposizione talmente\",ampi,ampio\n" + 
+    "Lista 1,\"All'elezione partecipano tre delegati per ogni Regione\",eletti,eletto\n" + 
+    "Lista 1,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 1,\"Il muro che serve di divisione tra edifici si\",presumono,presume\n" + 
+    "Lista 1,\"La polizia si stringe nelle spalle e\",dicono,dice\n" + 
+    "Lista 1,\"L'opuscolo che Studer riapre di ritratti precari, che\",aggiungono,aggiunge\n" + 
+    "Lista 1,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 1,\"Le sezioni di colore personalmente\",costituzionale,costituzionali\n" + 
+    "Lista 1,\"Le economiche dichiarazioni apparentemente a comando del salto\",concesse,concessa\n" + 
+    "Lista 1,\"Le scarpe rimaste dall'anello ligure si\",indica,indicano\n" + 
+    "Lista 1,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 1,\"Uno sta evidenziato a una rivoluzione e\",spiegano,spiega\n" + 
+    "Lista 1,\"Credo che si debba tener conto di circostanze materiali, che\",dimostra,dimostrano\n" + 
+    "Lista 1,\"È come se mi fossi risvegliato di colpo e avessi cominciato a guardare la realtà da un punto di vista tutto\",nuovo,nuovi\n" + 
+    "Lista 1,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 1,\"Qualsiasi descrizione del servizio tutto compreso\",fornita,fornite\n" + 
+    "Lista 1,\"Le norme stabilite dall'articolo precedente si\",applica,applicano\n" + 
+    "Lista 1,\"La sentenza stabilisce le modalità della servitù e\",determinano,determina\n" + 
+    "Lista 1,\"In navi suddette, si diceva del collo nerazzurro, che\",partiva,partivano\n" + 
+    "Lista 1,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 1,\"Sempre i costi mancano di dimenticare il gergo di compagna finalmente\",razionale,razionali\n" + 
+    "Lista 1,\"La sua è un'ingente invasione giustamente all'urgenza delle vittorie alla legittimazione\",restante,restanti\n" + 
+    "Lista 1,\"Le scorte ridotte dall'elemento scadente si\",adotta,adottano\n" + 
+    "Lista 1,\"La competenza restituisce le lire e\",considera,considerano\n" + 
+    
+    "Lista 2,\"Nelle squadre nazionali giocano i giocatori di calcio più\",bravo,bravi\n" + 
+    "Lista 2,\"Il rapporto, un lavoro di trecento pagine\",pubblicati,pubblicato\n" + 
+    "Lista 2,\"L'ultima sala che visiteranno si\",chiama,chiamano\n" + 
+    "Lista 2,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 2,\"Chi ha l'uso di un fondo e ne raccoglie tutti i frutti o chi ha il diritto di abitazione e\",occupa,occupano\n" + 
+    "Lista 2,\"Nel scandalo dell'Alaska, si riferisce assolutamente di un palcoscenico geneticamente costituzionale, che\",sussistono,sussiste\n" + 
+    "Lista 2,\"Le dita di trono persino\",costituzionali,costituzionale\n" + 
+    "Lista 2,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 2,\"Il deputato, un muro di cinquemila piastrelle\",spezzati,spezzato\n" + 
+    "Lista 2,\"Il sottomarino che la repressione gratuita aveva suggerito alla Dichiarazione si\",producono,produce\n" + 
+    "Lista 2,\"Se indiscriminatamente i divani sono privi, compriamo in profumeria e\",ho,abbiamo\n" + 
+    "Lista 2,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 2,\"L'uso che Balzac fa di personaggi ripetuti, che\",entrano,entra\n" + 
+    "Lista 2,\"Hańska era sposata con un uomo vent'anni più\",grandi,grande\n" + 
+    "Lista 2,\"Le uniche spese eventualmente a carico del consumatore\",dovuta,dovute\n" + 
+    "Lista 2,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 2,\"I diritti gravanti sul suolo si\",estendono,estende\n" + 
+    "Lista 2,\"Come avrà letto sui giornali o\",sentiti,sentito\n" + 
+    "Lista 2,\"L' obbiettivo che Luigi capisce di bersagli meteorologici, che\",esprime,esprimono\n" + 
+    "Lista 2,\"Infine i quotidiani guardano dei tributi di trionfo e situazione pure\",edilizi,edilizio\n" + 
+    "Lista 2,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 2,\"All'abitazione confermano nove bimbi per ogni Basilica\",inviato,inviati\n" + 
+    "Lista 2,\"Le procedure destinate dall'avvistamento costituzionale si\",aiutano,aiuta\n" + 
+    "Lista 2,\"Dal nostro inviato Spalato - La birra riempie i boccali e\",accendono,accende\n" + 
+    "Lista 2,\"La legge siciliana, che\",risalgono,risale\n" + 
+    
+    "Lista 3,\"All'elezione partecipano tre delegati per ogni Regione\",eletti,eletto\n" + 
+    "Lista 3,\"Il muro che serve di divisione tra edifici si\",presumono,presume\n" + 
+    "Lista 3,\"La polizia si stringe nelle spalle e\",dicono,dice\n" + 
+    "Lista 3,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 3,\"L'opuscolo che Studer riapre di ritratti precari, che\",aggiungono,aggiunge\n" + 
+    "Lista 3,\"Le sezioni di colore personalmente\",costituzionale,costituzionali\n" + 
+    "Lista 3,\"Le economiche dichiarazioni apparentemente a comando del salto\",concesse,concessa\n" + 
+    "Lista 3,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 3,\"Le scarpe rimaste dall'anello ligure si\",indica,indicano\n" + 
+    "Lista 3,\"Uno sta evidenziato a una rivoluzione e\",spiegano,spiega\n" + 
+    "Lista 3,\"La legge siciliana, che\",risalgono,risale\n" + 
+    "Lista 3,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 3,\"Nelle squadre nazionali giocano i giocatori di calcio più\",bravo,bravi\n" + 
+    "Lista 3,\"Il rapporto, un lavoro di trecento pagine\",pubblicati,pubblicato\n" + 
+    "Lista 3,\"L'ultima sala che visiteranno si\",chiama,chiamano\n" + 
+    "Lista 3,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 3,\"Chi ha l'uso di un fondo e ne raccoglie tutti i frutti o chi ha il diritto di abitazione e\",occupa,occupano\n" + 
+    "Lista 3,\"Nel scandalo dell'Alaska, si riferisce assolutamente di un palcoscenico geneticamente costituzionale, che\",sussistono,sussiste\n" + 
+    "Lista 3,\"Le dita di trono persino\",costituzionali,costituzionale\n" + 
+    "Lista 3,\"Il deputato, un muro di cinquemila piastrelle\",spezzati,spezzato\n" + 
+    "Lista 3,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 3,\"Il sottomarino che la repressione gratuita aveva suggerito alla Dichiarazione si\",producono,produce\n" + 
+    "Lista 3,\"Se indiscriminatamente i divani sono privi, compriamo in profumeria e\",ho,abbiamo\n" + 
+    "Lista 3,\"Per esempio, queste persone sono gli stranieri immigrati in Italia da poco tempo, che\",conosce,conoscono\n" + 
+    "Lista 3,\"Inoltre i proprietari hanno dei poteri di godimento e disposizione talmente\",ampi,ampio\n" + 
+    
+    "Lista 4,\"Le norme stabilite dall'articolo precedente si\",applica,applicano\n" + 
+    "Lista 4,\"La sentenza stabilisce le modalità della servitù e\",determinano,determina\n" + 
+    "Lista 4,\"In navi suddette, si diceva del collo nerazzurro, che\",partiva,partivano\n" + 
+    "Lista 4,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 4,\"Sempre i costi mancano di dimenticare il gergo di compagna finalmente\",razionale,razionali\n" + 
+    "Lista 4,\"La sua è un'ingente invasione giustamente all'urgenza delle vittorie alla legittimazione\",restante,restanti\n" + 
+    "Lista 4,\"Le scorte ridotte dall'elemento scadente si\",adotta,adottano\n" + 
+    "Lista 4,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 4,\"La competenza restituisce le lire e\",considera,considerano\n" + 
+    "Lista 4,\"L'uso che Balzac fa di personaggi ripetuti, che\",entrano,entra\n" + 
+    "Lista 4,\"Hańska era sposata con un uomo vent'anni più\",grandi,grande\n" + 
+    "Lista 4,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 4,\"Le uniche spese eventualmente a carico del consumatore\",dovuta,dovute\n" + 
+    "Lista 4,\"I diritti gravanti sul suolo si\",estendono,estende\n" + 
+    "Lista 4,\"Come avrà letto sui giornali o\",sentiti,sentito\n" + 
+    "Lista 4,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 4,\"L' obbiettivo che Luigi capisce di bersagli meteorologici, che\",esprime,esprimono\n" + 
+    "Lista 4,\"Infine i quotidiani guardano dei tributi di trionfo e situazione pure\",edilizi,edilizio\n" + 
+    "Lista 4,\"All'abitazione confermano nove bimbi per ogni Basilica\",inviato,inviati\n" + 
+    "Lista 4,\"Le procedure destinate dall'avvistamento costituzionale si\",aiutano,aiuta\n" + 
+    "Lista 4,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 4,\"Dal nostro inviato Spalato - La birra riempie i boccali e\",accendono,accende\n" + 
+    "Lista 4,\"Credo che si debba tener conto di circostanze materiali, che\",dimostra,dimostrano\n" + 
+    "Lista 4,\"È come se mi fossi risvegliato di colpo e avessi cominciato a guardare la realtà da un punto di vista tutto\",nuovo,nuovi\n" + 
+    "Lista 4,\"Qualsiasi descrizione del servizio tutto compreso\",fornita,fornite\n" + 
+    
+    "Lista 5,\"La polizia si stringe nelle spalle e\",dicono,dice\n" + 
+    "Lista 5,\"L'opuscolo che Studer riapre di ritratti precari, che\",aggiungono,aggiunge\n" + 
+    "Lista 5,\"Le sezioni di colore personalmente\",costituzionale,costituzionali\n" + 
+    "Lista 5,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 5,\"Le economiche dichiarazioni apparentemente a comando del salto\",concesse,concessa\n" + 
+    "Lista 5,\"Le scarpe rimaste dall'anello ligure si\",indica,indicano\n" + 
+    "Lista 5,\"Uno sta evidenziato a una rivoluzione e\",spiegano,spiega\n" + 
+    "Lista 5,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 5,\"L'uso che Balzac fa di personaggi ripetuti, che\",entrano,entra\n" + 
+    "Lista 5,\"Hańska era sposata con un uomo vent'anni più\",grandi,grande\n" + 
+    "Lista 5,\"Le uniche spese eventualmente a carico del consumatore\",dovuta,dovute\n" + 
+    "Lista 5,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 5,\"I diritti gravanti sul suolo si\",estendono,estende\n" + 
+    "Lista 5,\"Come avrà letto sui giornali o\",sentiti,sentito\n" + 
+    "Lista 5,\"L' obbiettivo che Luigi capisce di bersagli meteorologici, che\",esprime,esprimono\n" + 
+    "Lista 5,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 5,\"Infine i quotidiani guardano dei tributi di trionfo e situazione pure\",edilizi,edilizio\n" + 
+    "Lista 5,\"All'abitazione confermano nove bimbi per ogni Basilica\",inviato,inviati\n" + 
+    "Lista 5,\"Le procedure destinate dall'avvistamento costituzionale si\",aiutano,aiuta\n" + 
+    "Lista 5,\"Dal nostro inviato Spalato - La birra riempie i boccali e\",accendono,accende\n" + 
+    "Lista 5,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 5,\"Per esempio, queste persone sono gli stranieri immigrati in Italia da poco tempo, che\",conosce,conoscono\n" + 
+    "Lista 5,\"Inoltre i proprietari hanno dei poteri di godimento e disposizione talmente\",ampi,ampio\n" + 
+    "Lista 5,\"All'elezione partecipano tre delegati per ogni Regione\",eletti,eletto\n" + 
+    "Lista 5,\"Il muro che serve di divisione tra edifici si\",presumono,presume\n" + 
+    
+    "Lista 6,\"Nel scandalo dell'Alaska, si riferisce assolutamente di un palcoscenico geneticamente costituzionale, che\",sussistono,sussiste\n" + 
+    "Lista 6,\"Le dita di trono persino\",costituzionali,costituzionale\n" + 
+    "Lista 6,\"Il deputato, un muro di cinquemila piastrelle\",spezzati,spezzato\n" + 
+    "Lista 6,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 6,\"Il sottomarino che la repressione gratuita aveva suggerito alla Dichiarazione si\",producono,produce\n" + 
+    "Lista 6,\"Se indiscriminatamente i divani sono privi, compriamo in profumeria e\",ho,abbiamo\n" + 
+    "Lista 6,\"Credo che si debba tener conto di circostanze materiali, che\",dimostra,dimostrano\n" + 
+    "Lista 6,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 6,\"È come se mi fossi risvegliato di colpo e avessi cominciato a guardare la realtà da un punto di vista tutto\",nuovo,nuovi\n" + 
+    "Lista 6,\"Qualsiasi descrizione del servizio tutto compreso\",fornita,fornite\n" + 
+    "Lista 6,\"Le norme stabilite dall'articolo precedente si\",applica,applicano\n" + 
+    "Lista 6,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 6,\"La sentenza stabilisce le modalità della servitù e\",determinano,determina\n" + 
+    "Lista 6,\"In navi suddette, si diceva del collo nerazzurro, che\",partiva,partivano\n" + 
+    "Lista 6,\"Sempre i costi mancano di dimenticare il gergo di compagna finalmente\",razionale,razionali\n" + 
+    "Lista 6,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 6,\"La sua è un'ingente invasione giustamente all'urgenza delle vittorie alla legittimazione\",restante,restanti\n" + 
+    "Lista 6,\"Le scorte ridotte dall'elemento scadente si\",adotta,adottano\n" + 
+    "Lista 6,\"La competenza restituisce le lire e\",considera,considerano\n" + 
+    "Lista 6,\"La legge siciliana, che\",risalgono,risale\n" + 
+    "Lista 6,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 6,\"Nelle squadre nazionali giocano i giocatori di calcio più\",bravo,bravi\n" + 
+    "Lista 6,\"Il rapporto, un lavoro di trecento pagine\",pubblicati,pubblicato\n" + 
+    "Lista 6,\"L'ultima sala che visiteranno si\",chiama,chiamano\n" + 
+    "Lista 6,\"Chi ha l'uso di un fondo e ne raccoglie tutti i frutti o chi ha il diritto di abitazione e\",occupa,occupano\n" + 
+    
+    "Lista 7,\"Le sezioni di colore personalmente\",costituzionale,costituzionali\n" + 
+    "Lista 7,\"Le economiche dichiarazioni apparentemente a comando del salto\",concesse,concessa\n" + 
+    "Lista 7,\"Le scarpe rimaste dall'anello ligure si\",indica,indicano\n" + 
+    "Lista 7,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 7,\"Uno sta evidenziato a una rivoluzione e\",spiegano,spiega\n" + 
+    "Lista 7,\"Credo che si debba tener conto di circostanze materiali, che\",dimostra,dimostrano\n" + 
+    "Lista 7,\"È come se mi fossi risvegliato di colpo e avessi cominciato a guardare la realtà da un punto di vista tutto\",nuovo,nuovi\n" + 
+    "Lista 7,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 7,\"Qualsiasi descrizione del servizio tutto compreso\",fornita,fornite\n" + 
+    "Lista 7,\"Le norme stabilite dall'articolo precedente si\",applica,applicano\n" + 
+    "Lista 7,\"La sentenza stabilisce le modalità della servitù e\",determinano,determina\n" + 
+    "Lista 7,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 7,\"In navi suddette, si diceva del collo nerazzurro, che\",partiva,partivano\n" + 
+    "Lista 7,\"Sempre i costi mancano di dimenticare il gergo di compagna finalmente\",razionale,razionali\n" + 
+    "Lista 7,\"La sua è un'ingente invasione giustamente all'urgenza delle vittorie alla legittimazione\",restante,restanti\n" + 
+    "Lista 7,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 7,\"Le scorte ridotte dall'elemento scadente si\",adotta,adottano\n" + 
+    "Lista 7,\"La competenza restituisce le lire e\",considera,considerano\n" + 
+    "Lista 7,\"Per esempio, queste persone sono gli stranieri immigrati in Italia da poco tempo, che\",conosce,conoscono\n" + 
+    "Lista 7,\"Inoltre i proprietari hanno dei poteri di godimento e disposizione talmente\",ampi,ampio\n" + 
+    "Lista 7,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 7,\"All'elezione partecipano tre delegati per ogni Regione\",eletti,eletto\n" + 
+    "Lista 7,\"Il muro che serve di divisione tra edifici si\",presumono,presume\n" + 
+    "Lista 7,\"La polizia si stringe nelle spalle e\",dicono,dice\n" + 
+    "Lista 7,\"L'opuscolo che Studer riapre di ritratti precari, che\",aggiungono,aggiunge\n" + 
+    
+    "Lista 8,\"Il deputato, un muro di cinquemila piastrelle\",spezzati,spezzato\n" + 
+    "Lista 8,\"Il sottomarino che la repressione gratuita aveva suggerito alla Dichiarazione si\",producono,produce\n" + 
+    "Lista 8,\"Se indiscriminatamente i divani sono privi, compriamo in profumeria e\",ho,abbiamo\n" + 
+    "Lista 8,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 8,\"L'uso che Balzac fa di personaggi ripetuti, che\",entrano,entra\n" + 
+    "Lista 8,\"Hańska era sposata con un uomo vent'anni più\",grandi,grande\n" + 
+    "Lista 8,\"Le uniche spese eventualmente a carico del consumatore\",dovuta,dovute\n" + 
+    "Lista 8,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 8,\"I diritti gravanti sul suolo si\",estendono,estende\n" + 
+    "Lista 8,\"Come avrà letto sui giornali o\",sentiti,sentito\n" + 
+    "Lista 8,\"L' obbiettivo che Luigi capisce di bersagli meteorologici, che\",esprime,esprimono\n" + 
+    "Lista 8,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 8,\"Infine i quotidiani guardano dei tributi di trionfo e situazione pure\",edilizi,edilizio\n" + 
+    "Lista 8,\"All'abitazione confermano nove bimbi per ogni Basilica\",inviato,inviati\n" + 
+    "Lista 8,\"Le procedure destinate dall'avvistamento costituzionale si\",aiutano,aiuta\n" + 
+    "Lista 8,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 8,\"Dal nostro inviato Spalato - La birra riempie i boccali e\",accendono,accende\n" + 
+    "Lista 8,\"La legge siciliana, che\",risalgono,risale\n" + 
+    "Lista 8,\"Nelle squadre nazionali giocano i giocatori di calcio più\",bravo,bravi\n" + 
+    "Lista 8,\"Il rapporto, un lavoro di trecento pagine\",pubblicati,pubblicato\n" + 
+    "Lista 8,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 8,\"L'ultima sala che visiteranno si\",chiama,chiamano\n" + 
+    "Lista 8,\"Chi ha l'uso di un fondo e ne raccoglie tutti i frutti o chi ha il diritto di abitazione e\",occupa,occupano\n" + 
+    "Lista 8,\"Nel scandalo dell'Alaska, si riferisce assolutamente di un palcoscenico geneticamente costituzionale, che\",sussistono,sussiste\n" + 
+    "Lista 8,\"Le dita di trono persino\",costituzionali,costituzionale\n" + 
+    
+    "Lista 9,\"Le scarpe rimaste dall'anello ligure si\",indica,indicano\n" + 
+    "Lista 9,\"Uno sta evidenziato a una rivoluzione e\",spiegano,spiega\n" + 
+    "Lista 9,\"Credo che si debba tener conto di circostanze materiali, che\",dimostra,dimostrano\n" + 
+    "Lista 9,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 9,\"È come se mi fossi risvegliato di colpo e avessi cominciato a guardare la realtà da un punto di vista tutto\",nuovo,nuovi\n" + 
+    "Lista 9,\"Qualsiasi descrizione del servizio tutto compreso\",fornita,fornite\n" + 
+    "Lista 9,\"Le norme stabilite dall'articolo precedente si\",applica,applicano\n" + 
+    "Lista 9,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 9,\"La sentenza stabilisce le modalità della servitù e\",determinano,determina\n" + 
+    "Lista 9,\"In navi suddette, si diceva del collo nerazzurro, che\",partiva,partivano\n" + 
+    "Lista 9,\"Sempre i costi mancano di dimenticare il gergo di compagna finalmente\",razionale,razionali\n" + 
+    "Lista 9,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 9,\"La sua è un'ingente invasione giustamente all'urgenza delle vittorie alla legittimazione\",restante,restanti\n" + 
+    "Lista 9,\"Le scorte ridotte dall'elemento scadente si\",adotta,adottano\n" + 
+    "Lista 9,\"La competenza restituisce le lire e\",considera,considerano\n" + 
+    "Lista 9,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 9,\"Per esempio, queste persone sono gli stranieri immigrati in Italia da poco tempo, che\",conosce,conoscono\n" + 
+    "Lista 9,\"Inoltre i proprietari hanno dei poteri di godimento e disposizione talmente\",ampi,ampio\n" + 
+    "Lista 9,\"All'elezione partecipano tre delegati per ogni Regione\",eletti,eletto\n" + 
+    "Lista 9,\"Il muro che serve di divisione tra edifici si\",presumono,presume\n" + 
+    "Lista 9,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 9,\"La polizia si stringe nelle spalle e\",dicono,dice\n" + 
+    "Lista 9,\"L'opuscolo che Studer riapre di ritratti precari, che\",aggiungono,aggiunge\n" + 
+    "Lista 9,\"Le sezioni di colore personalmente\",costituzionale,costituzionali\n" + 
+    "Lista 9,\"Le economiche dichiarazioni apparentemente a comando del salto\",concesse,concessa\n" + 
+    
+    "Lista 10,\"Se indiscriminatamente i divani sono privi, compriamo in profumeria e\",ho,abbiamo\n" + 
+    "Lista 10,\"L'uso che Balzac fa di personaggi ripetuti, che\",entrano,entra\n" + 
+    "Lista 10,\"Hańska era sposata con un uomo vent'anni più\",grandi,grande\n" + 
+    "Lista 10,\"All'inizio del secondo tempo il Boca approfitta di uno\",sbandamento,sbandamenti\n" + 
+    "Lista 10,\"Le uniche spese eventualmente a carico del consumatore\",dovuta,dovute\n" + 
+    "Lista 10,\"I diritti gravanti sul suolo si\",estendono,estende\n" + 
+    "Lista 10,\"Come avrà letto sui giornali o\",sentiti,sentito\n" + 
+    "Lista 10,\"Nella foto grande Zdenek Zeman, l'allenatore biancoceleste,\",guardano,guarda\n" + 
+    "Lista 10,\"L' obbiettivo che Luigi capisce di bersagli meteorologici, che\",esprime,esprimono\n" + 
+    "Lista 10,\"Infine i quotidiani guardano dei tributi di trionfo e situazione pure\",edilizi,edilizio\n" + 
+    "Lista 10,\"All'abitazione confermano nove bimbi per ogni Basilica\",inviato,inviati\n" + 
+    "Lista 10,\"A trasformarsi doveva sposare il smaltimento che indossa della parsimonia di un\",regalo,regali\n" + 
+    "Lista 10,\"Le procedure destinate dall'avvistamento costituzionale si\",aiutano,aiuta\n" + 
+    "Lista 10,\"Dal nostro inviato Spalato - La birra riempie i boccali e\",accendono,accende\n" + 
+    "Lista 10,\"La legge siciliana, che\",risalgono,risale\n" + 
+    "Lista 10,\"Pur, con collettività neppure morta dalla probabilità, si accolga la compagna al\",valido,validi\n" + 
+    "Lista 10,\"Nelle squadre nazionali giocano i giocatori di calcio più\",bravo,bravi\n" + 
+    "Lista 10,\"Il rapporto, un lavoro di trecento pagine\",pubblicati,pubblicato\n" + 
+    "Lista 10,\"L'ultima sala che visiteranno si\",chiama,chiamano\n" + 
+    "Lista 10,\"Chi ha l'uso di un fondo e ne raccoglie tutti i frutti o chi ha il diritto di abitazione e\",occupa,occupano\n" + 
+    "Lista 10,\"E quando si teme all'operaia differenza, contestualmente sono state\",inserita,inserite\n" + 
+    "Lista 10,\"Nel scandalo dell'Alaska, si riferisce assolutamente di un palcoscenico geneticamente costituzionale, che\",sussistono,sussiste\n" + 
+    "Lista 10,\"Le dita di trono persino\",costituzionali,costituzionale\n" + 
+    "Lista 10,\"Il deputato, un muro di cinquemila piastrelle\",spezzati,spezzato\n" + 
+    "Lista 10,\"Il sottomarino che la repressione gratuita aveva suggerito alla Dichiarazione si\",producono,produce\n"
+    );
+
+
+// Instructions
+newTrial("instructions",
+    defaultText.center().print() // Automatically print all Text elements, centered
+    ,
+    newText("Ciao!"),
+    newText("Benvenuto/a al nostro esperimento di Self-Paced Reading!"),
+    newText("Ti chiederemo di leggere delle frasi al tuo ritmo."),
+    newText("Inserisci il tuo nome qui sotto e poi clicca sul pulsante \"Inizia\" per avviare l'esperimento.")
+    ,
+    newTextInput("inputID", "")
+        .center().css("margin","1em").print()
+    ,
+    newButton("Inizia")
+        .center().print().wait( getTextInput("inputID").testNot.text("") ) // Only validate a click on Start when inputID has been filled
+    ,
+    getVar("ID").set( getTextInput("inputID") ) // Store the text from inputID into the Var element
+);
+
+// Practice
+newTrial("practice_item",
+    defaultText.cssContainer({"margin-bottom":"2em"}) // Automatically print all Text elements, centered
+    .center()
+    .print()
+    ,
+    newText("what_to_do_1", "Prima di iniziare con l'esperimento vero e proprio, puoi provare il self-paced reading con una frase di prova. \n" +
+    "Clicca sul pulsante qui sotto per iniziare con la lettura della frase."),
+    newButton("Inizia lettura")
+        .center()
+        .print().
+        wait()
+        .remove(),
+    getText("what_to_do_1").remove()
+    ,
+    newText("what_to_do_2", "Premi lo spazio per passare alla parola successiva."),
+    newController("DashedSentence", {s: "Questa è una frase di prova per testare il self-paced reading. Semplice, no?"})
+        .center()
+        .print()
+        .log()      // Make sure to log the participant's progress
+        .wait()
+        .remove(),
+    getText("what_to_do_2").remove()
+    ,
+    newText("what_to_do_3", "Una volta letta la frase, ti verrano presentate due opzioni per completarla. \n" +
+    "Scegli l'opzione che più ti sembra corretta."),
+    newButton("Molto semplice :)")
+        .print(),
+    newButton("Addirittura divertente!")
+        .print(),
+    newText("space", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp")
+        .center()
+        .before(getButton("Molto semplice :)"))
+        .after(getButton("Addirittura divertente!"))
+        .print(),
+    newSelector() // Wait for response from either button
+        .add(getButton("Molto semplice :)"), getButton("Addirittura divertente!"))
+        .wait()
+        .log() // Log the participant's response
+        .remove(),
+    getButton("Molto semplice :)").remove(), // Remove the buttons after response
+    getButton("Addirittura divertente!").remove(),
+    getText("what_to_do_3").remove()
+    ,
+    newText("Tutto chiaro? Ora puoi passare alle frasi dell'esperimento."),
+    newButton("Inizia esperimento")
+        .center()
+        .print()
+        .wait()
+        .remove()
+);
+
+
+// Function to choose a list
+newTrial("choose_list",
+    
+    newText("Ti chiediamo di scegliere una tra le seguenti 10 liste:")
+        .center()
+        .css("margin-bottom", "2em")
+        .print(),
+    
+    newButton("Lista 1")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 1") //Quando viene selezionato questo bottone, imposta la variabile a Lista 1
+            )
+        .print()
+        .log("listChoice", "Lista 1"),
+    
+    newButton("Lista 2")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 2")
+        )
+        .print()
+        .log("listChoice", "Lista 2"),
+    
+    newButton("Lista 3")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 3")
+            )
+        .print()
+        .log("listChoice", "Lista 3"), 
+        
+    newButton("Lista 4")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 4")
+        )
+        .print()
+        .log("listChoice", "Lista 4"),
+    
+    newButton("Lista 5")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 5")
+        )
+        .print()
+        .log("listChoice", "Lista 5"),
+    
+    newButton("Lista 6")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 6")
+        )
+        .print()
+        .log("listChoice", "Lista 6"),
+    
+    newButton("Lista 7")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 7")
+        )
+        .print()
+        .log("listChoice", "Lista 7"),
+    
+    newButton("Lista 8")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 8")
+        )
+        .print()
+        .log("listChoice", "Lista 8"),
+    
+    newButton("Lista 9")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 9")
+        )
+        .print()
+        .log("listChoice", "Lista 9"),
+    
+    newButton("Lista 10")
+        .center()
+        .css("margin-bottom", "1em")
+        .callback(
+            getVar("listChoice").set(v => "Lista 10")
+        )
+        .print()
+        .log("listChoice", "Lista 10")
+    ,
+    newSelector()
+        .add(getButton("Lista 1"), getButton("Lista 2"), getButton("Lista 3"), getButton("Lista 4"), getButton("Lista 5"),
+        getButton("Lista 6"), getButton("Lista 7"), getButton("Lista 8"), getButton("Lista 9"), getButton("Lista 10"))
+        .wait()
+        .log() // Log the participant's response
+);
+
+Template("dati",
+    row => newTrial("experiment",
+
+    
+    getVar("listChoice").test.is(row.Lista).success( //viene controllato il valore della colonna "lista", se è uguale 
+                                                    // alla scelta dell'utente procede a mostrarla, se no la salta
+        
+        // We use the native-Ibex "DashedSentence" controller
+        // Documentation at:   https://github.com/addrummond/ibex/blob/master/docs/manual.md#dashedsentence
+        newController("DashedSentence", {s : row.Sentence})
+            .center()
+            .print()
+            .log()      // Make sure to log the participant's progress
+            .wait()
+            .remove()
+        ,
+        // Print buttons within the text element horizontally with space between them
+        newButton(row.A)
+            .print(),
+        newButton(row.B)
+            .print(),
+        newText("space", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp") // Add space
+            .center()
+            .before(getButton(row.A))
+            .after(getButton(row.B))
+            .print(),
+        // Wait for response from either button
+        newSelector()
+            .add(getButton(row.A), getButton(row.B))
+            .wait()
+            .log() // Log the participant's response
+            .remove(),
+        getButton(row.A).remove(),// Remove the buttons after response
+        getButton(row.B).remove(),
+        
+        newButton("Continua")
+            .center()
+            .print()
+            .wait()
+            .remove()
+        )
+    )
+    
+);
+
+// Final screen
+newTrial("end",
+    newText("Grazie mille per la tua partecipazione!")
+        .center()
+        .print()
+    ,
+    // This link a placeholder: replace it with a URL provided by your participant-pooling platform
+    newText("<p><a href='https://www.pcibex.net/' target='_blank'>Clicca qui per convalidare le tue risposte</a></p>")
+        .center()
+        .print()
+    ,
+    
+    newText("Una volta convalidate le risposte puoi chiudere la pagina, grazie del tuo prezioso aiuto :)")
+        .center()
+        .print()
+    ,
+    // Trick: stay on this trial forever (until tab is closed)
+    newButton().wait()
+)
+.setOption("countsForProgressBar",false)
