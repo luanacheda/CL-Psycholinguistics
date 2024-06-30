@@ -48,6 +48,7 @@ Below are the programs we used to analyze the collected data. It is important to
      ```bash
      python box_plot_charts.py
      ```
+   - See also directory `box_plot_general`
 
 6. **`selected_target.py`**  
    - **Description**: Reads the cleaned data CSV file and the sentence tables, updating the sentence tables with the selected target words. The updated tables are available in the `reading_time_selected_target_tables` directory.
